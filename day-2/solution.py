@@ -1,24 +1,6 @@
 import os
 from collections import defaultdict
 
-
-"""
-Game: elf will reach into bag and grab handful of random cubes multiple times per game
-
-elf wants to know which games are possible if bag contains only 12 red cubes, 13 green cubes, 14 blue cubes
-
-approach: 
-
-    you need to iterate through each game in the list
-    you need to check each example from each game against the limit
-
-    for games that are possible, add to the running sum
-     
-
-part II 
-what is the min num of cubes to make each game work? aka, what is the running max of each cube color?
-"""
-
 script_dir = os.path.dirname(__file__)
 file_path = os.path.join(script_dir, 'input.txt')
 

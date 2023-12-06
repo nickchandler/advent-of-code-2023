@@ -28,7 +28,6 @@ def find_num(line, x):
     if not safe_int(line[x]): return False
     num_string = [line[x]]
     print(num_string, 'this is num_string')
-    #line[x] = '.'
     # go left
     x_left = 1
     while True:
@@ -37,7 +36,6 @@ def find_num(line, x):
 
         if safe_int(line[x - x_left]):
             num_string.insert(0, line[x - x_left])
-            #        line[x - x_left] = '.'
 
         else: break
 
@@ -52,14 +50,14 @@ def find_num(line, x):
 
         if safe_int(line[x + x_right]):
             num_string = num_string + [line[x + x_right]]
-            #       line[x + x_right] = '.'
 
         else: break
 
         x_right += 1
 
     print(num_string, 'this is num_string after going right')
-    return safe_int("".join(num_string))
+
+    return [safe_int("".join(num_string))]
         
 def solution(input):
     sum = 0
@@ -80,7 +78,6 @@ def solution(input):
                 # up
                 if line_num - 1 > 0:
                     line = input[line_num - 1]
-                    print(line, 'LOOKING IN THIS LINE')
                     if not line == None:
                         maybe_num = find_num(line, x)
                         if maybe_num:
@@ -89,7 +86,6 @@ def solution(input):
                     # up left
                 if line_num - 1 > 0:
                     line = input[line_num - 1]
-                    print(line, 'LOOKING IN THIS LINE')
                     if not line == None:
                         if x > 0:
                             maybe_num = find_num(line, x - 1)
@@ -99,7 +95,6 @@ def solution(input):
                     # up right
                 if line_num - 1 > 0:
                     line = input[line_num - 1]
-                    print(line, 'LOOKING IN THIS LINE')
                     if not line == None:
                         maybe_num = find_num(line, x + 1)
                         if maybe_num:
@@ -108,7 +103,6 @@ def solution(input):
                     # right 
                 if line_num - 1 > 0:
                     line = input[line_num]
-                    print(line, 'LOOKING IN THIS LINE')
                     if not line == None:
                         maybe_num = find_num(line, x + 1)
                         if maybe_num:
@@ -117,7 +111,6 @@ def solution(input):
                     # down right
                 if line_num + 1 < matrix_len - 1:
                     line = input[line_num + 1]
-                    print(line, 'LOOKING IN THIS LINE')
                     if not line == None:
                         maybe_num = find_num(line, x + 1)
                         if maybe_num:
@@ -126,7 +119,6 @@ def solution(input):
                     # down 
                 if line_num + 1 < matrix_len - 1:
                     line = input[line_num + 1]
-                    print(line, 'LOOKING IN THIS LINE')
                     if not line == None:
                         maybe_num = find_num(line, x)
                         if maybe_num:
@@ -135,7 +127,6 @@ def solution(input):
                     # down left
                 if line_num + 1 < matrix_len - 1:
                     line = input[line_num + 1]
-                    print(line, 'LOOKING IN THIS LINE')
                     if not line == None:
                         if x > 0:
                             maybe_num = find_num(line, x - 1)
@@ -144,13 +135,11 @@ def solution(input):
 
                     # left
                     line = input[line_num]
-                    print(line, 'LOOKING IN THIS LINE')
                     if not line == None:
                         if x > 0:
                             maybe_num = find_num(line, x - 1)
                             if maybe_num:
                                 sum += maybe_num
-            
 
     return sum
 
